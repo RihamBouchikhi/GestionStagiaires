@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoutesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [RoutesController::class, 'welcom'])->name('wecome');
+Route::get('/home',[RoutesController::class, 'home'])->name('home')->middleware('auth') ;
+Route::get('/admin-dashboard', [RoutesController::class, 'AdminDashboard'])->name('admin');
+Route::get('/intern', [RoutesController::class, 'intern'])->name('Stagiaire');
+
+//Admin admin-Profile
+
+Route::get('/admin-profile', [App\Http\Controllers\admin-ProfileController::class, 'index'])->name('user.admin-Profile');
+Route::post('/admin-profile', [App\Http\Controllers\admin-ProfileController::class, 'store'])->name('user.admin-Profile.store');
+Route::put('/admin-profile', [App\Http\Controllers\admin-ProfileController::class, 'update'])->name('user.admin-Profile.update');
+Route::delete('/admin-profile', [App\Http\Controllers\admin-ProfileController::class, 'destroy'])->name('user.admin-Profile.destroy');
