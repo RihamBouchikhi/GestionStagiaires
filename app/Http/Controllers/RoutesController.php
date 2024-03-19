@@ -22,7 +22,9 @@ class RoutesController extends Controller
         return view('intern');
     }
 
-   
+    public function OffreStatus() {
+        return view('status-offer');
+    }
    
    
     /**
