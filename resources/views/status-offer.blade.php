@@ -1,9 +1,10 @@
 @extends('layout.master')
 
-@section('title' , 'Admin Dashboard')
+@section('title' , 'Status Offres')
 
 @section('content')
-    <h1>Admin</h1>
+    <h1>Status</h1>
+
     
 @endsection
     
